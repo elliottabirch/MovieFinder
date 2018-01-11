@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "start": "nodemon webapp/server/index.js",
+  "webpack": "./node_modules/.bin/webpack -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.16.2",
     "node": "^9.4.0",
+    "nodemon": "^1.14.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "request": "^2.83.0",

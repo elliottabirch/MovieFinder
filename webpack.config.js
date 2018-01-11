@@ -1,8 +1,17 @@
-var config = {
-  entry: './main.js',
+const webpack = require('webpack');
+const path = require('path');
+
+const buildDirectory = path.resolve(__dirname, './build');
+const appDirectory = path.resolve(__dirname, './webapp/client');
+
+const config = {
+  entry: {
+    main: appDirectory + '/index.js',
+  },
   output: {
-        filename: 'index.js',
-     },
+    filename: 'bundle.js',
+    path: buildDirectory,
+  },
   devServer: {
         inline: true,
         port: 5000
