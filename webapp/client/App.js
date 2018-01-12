@@ -1,9 +1,10 @@
 import React from 'react';
+import PopularMovies from './PopularMovies';
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      popular: ''
+      popular: {}
     }
     }
     componentDidMount(){
@@ -11,15 +12,21 @@ class App extends React.Component {
       .then(results => {
         return results.json()
       }).then(data=> {
-        console.log(data);
+        this.setState({popular: data})
+        console.log(this.state.popular.results[0].title)
       })
     }
 
+    
 
    render() {
+     const apiCallSuc = this.state.popular.results;
       return (
          <div>
             <input type="text" placeholder="Search.." />
+            {apiCallSuc ? this.state.popular.results.map((result) =>{
+              return <PopularMovies result={result}/> 
+            }): ''}
          </div>
       );
    }
