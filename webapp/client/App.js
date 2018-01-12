@@ -1,9 +1,25 @@
 import React from 'react';
 class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      popular: ''
+    }
+    }
+    componentDidMount(){
+      fetch('/popular')
+      .then(results => {
+        return results.json()
+      }).then(data=> {
+        console.log(data);
+      })
+    }
+
+
    render() {
       return (
          <div>
-            Is this working?!!!
+            <input type="text" placeholder="Search.." />
          </div>
       );
    }
