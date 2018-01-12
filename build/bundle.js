@@ -18306,21 +18306,22 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      popular: {}
+      popular: {},
+      searchState: false
     };
     return _this;
   }
 
   _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
       var _this2 = this;
 
       fetch('/popular').then(function (results) {
         return results.json();
       }).then(function (data) {
         _this2.setState({ popular: data });
-        console.log(_this2.state.popular.results[0].title);
+        //console.log(this.state.popular.results[0].title)
       });
     }
   }, {

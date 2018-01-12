@@ -5,16 +5,17 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      popular: {}
+      popular: {},
+      searchState: false
     }
     }
-    componentDidMount(){
+    componentWillMount(){
       fetch('/popular')
       .then(results => {
         return results.json()
       }).then(data=> {
         this.setState({popular: data})
-        console.log(this.state.popular.results[0].title)
+        //console.log(this.state.popular.results[0].title)
       })
     }
 

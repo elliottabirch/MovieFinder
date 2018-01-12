@@ -12,7 +12,7 @@ app.listen(PORT);
 app.get('/popular', (req, res) => {
   request('https://api.themoviedb.org/3/movie/popular?api_key='+key.key+'&language=en-US&page=1', (err, response, body)=>{
     if(err){
-      throw err;
+      res.send(err);
     }
     else {
       const data = JSON.parse(body);
