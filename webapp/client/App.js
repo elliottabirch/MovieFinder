@@ -1,5 +1,6 @@
 import React from 'react';
 import PopularMovies from './PopularMovies';
+import Search from './Search'
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -23,7 +24,7 @@ class App extends React.Component {
      const apiCallSuc = this.state.popular.results;
       return (
          <div>
-            <input type="text" placeholder="Search.." />
+            <Search />
             {apiCallSuc ? this.state.popular.results.map((result) =>{
               return <PopularMovies result={result}/> 
             }): ''}
